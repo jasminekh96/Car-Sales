@@ -22,7 +22,8 @@ export const reducer = (state = initialState, action) => {
 		case ADD_ITEM:
 			return {
 				...state,
-				car : {
+				additionalPrice : state.additionalPrice + action.payload.price,
+				car             : {
 					...state.car,
 					features : [ ...state.car.features, action.payload ],
 				},
@@ -30,7 +31,8 @@ export const reducer = (state = initialState, action) => {
 		case REMOVE_ITEM:
 			return {
 				...state,
-				car : {
+				additionalPrice : state.additionalPrice - action.payload.price,
+				car             : {
 					...state.car,
 					// does feature === item (action.payload);
 					// feature !== item
